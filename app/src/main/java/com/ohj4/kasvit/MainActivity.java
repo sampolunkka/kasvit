@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Plant> plantsList;
     private RecyclerView recyclerView;
+    private RecyclerAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addPlant(View view) {
-        plantsList.add(new Plant());
+        /*plantsList.add(new Plant());
+        adapter.notifyItemInserted(plantsList.size()-1);*/
+        Intent myIntent = new Intent(MainActivity.this, PlantView.class);
+        //myIntent.putExtra()
+        MainActivity.this.startActivity(myIntent);
     }
 
     private void SetPlantInfo() {
@@ -52,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+        this.adapter = adapter;
     }
 }
