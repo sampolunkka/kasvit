@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(myIntent);
     }
 
+    public void openPlantView(View view) {
+        Intent myIntent = new Intent(MainActivity.this, PlantView.class);
+        MainActivity.this.startActivity(myIntent);
+        Plant plant = view.
+    }
+
     private void SetPlantInfo() {
 
         plantsList.add(new Plant("lol"));
