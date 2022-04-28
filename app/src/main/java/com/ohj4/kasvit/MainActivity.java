@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,26 +17,29 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
 
+    //vars
     private ArrayList<Plant> plantsList;
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
 
+    //https://www.youtube.com/watch?v=Vyqz_-sJGFk&ab_channel=CodingWithMitch
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d(TAG, "onCreate: started.");
         //hide action bar
         getSupportActionBar().hide();
 
 
-        recyclerView = findViewById(R.id.plantsRecyclerView);
+        //recyclerView = findViewById(R.id.recycler_view);
         plantsList = new ArrayList<Plant>();
 
         SetPlantInfo();
-        setAdapter();
+        initRecyclerView();
     }
 
     public void addPlant(View view) {
@@ -49,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     public void openPlantView(View view) {
         Intent myIntent = new Intent(MainActivity.this, PlantView.class);
         MainActivity.this.startActivity(myIntent);
-        Plant plant = view.
     }
 
     private void SetPlantInfo() {
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         plantsList.add(new Plant("Janne"));
 
     }
-
+/*
     private void setAdapter() {
         RecyclerAdapter adapter = new RecyclerAdapter(plantsList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -66,5 +69,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         this.adapter = adapter;
+    }
+    */
+
+    private void initRecyclerView() {
+        Log.d(TAG, "initRecyclerView: init recyclerview.");
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerAdapter adapter = new RecyclerAdapter(this, plantsList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
