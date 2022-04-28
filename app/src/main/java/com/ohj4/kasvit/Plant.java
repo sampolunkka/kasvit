@@ -45,4 +45,8 @@ public class Plant {
     public String getName() {
         return name;
     }
+
+    public String getDescription() {
+        return description;
+    }
 }

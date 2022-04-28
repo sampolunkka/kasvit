@@ -1,6 +1,7 @@
 package com.ohj4.kasvit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +40,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        String nameText = plantsList.get(position).getName();
+        Plant plant = plantsList.get(holder.getAdapterPosition());
 
-        holder.plantName.setText(nameText);
+        holder.plantName.setText(plant.getName());
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + nameText);
+                Log.d(TAG, "onClick: clicked on: " + plant.getName());
+                Intent intent = new Intent(context, PlantActivity.class);
+                intent.putExtra("plant_name", plant.getName());
+                intent.putExtra("plant_desc", plant.getDescription());
+                context.startActivity(intent);
             }
         });
 

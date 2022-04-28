@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
     public void addPlant(View view) {
         /*plantsList.add(new Plant());
         adapter.notifyItemInserted(plantsList.size()-1);*/
-        Intent myIntent = new Intent(MainActivity.this, PlantView.class);
+        Intent myIntent = new Intent(MainActivity.this, PlantActivity.class);
         //myIntent.putExtra()
         MainActivity.this.startActivity(myIntent);
     }
 
     public void openPlantView(View view) {
-        Intent myIntent = new Intent(MainActivity.this, PlantView.class);
+        Intent myIntent = new Intent(MainActivity.this, PlantActivity.class);
         MainActivity.this.startActivity(myIntent);
     }
 

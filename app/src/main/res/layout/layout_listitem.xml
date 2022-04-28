@@ -32,5 +32,5 @@
         android:textSize="17sp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        />d
+        />
 </RelativeLayout>
