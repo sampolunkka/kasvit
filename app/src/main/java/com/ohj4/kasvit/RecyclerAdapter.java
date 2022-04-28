@@ -32,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         ViewHolder holder = new ViewHolder(view);
-        return null;
+        return holder;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView plantName;
         private ImageView image;
-        private ConstraintLayout parentLayout;
+        private RelativeLayout parentLayout;
 
         public ViewHolder(final View itemView) {
             super(itemView);

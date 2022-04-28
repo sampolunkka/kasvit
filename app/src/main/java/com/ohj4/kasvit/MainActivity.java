@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     //vars
     private ArrayList<Plant> plantsList;
     private RecyclerView recyclerView;
-    private RecyclerAdapter adapter;
 
     //https://www.youtube.com/watch?v=Vyqz_-sJGFk&ab_channel=CodingWithMitch
 
