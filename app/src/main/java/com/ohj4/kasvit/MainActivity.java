@@ -1,27 +1,26 @@
 package com.ohj4.kasvit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.concurrent.RecursiveAction;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     //vars
-    private ArrayList<Plant> plantsList;
+    public static ArrayList<Plant> plantsList;
     private RecyclerView recyclerView;
+    PlantsRecyclerAdapter adapter;
 
     //https://www.youtube.com/watch?v=Vyqz_-sJGFk&ab_channel=CodingWithMitch
 
@@ -41,23 +40,23 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
-    public void addPlant(View view) {
-        /*plantsList.add(new Plant());
-        adapter.notifyItemInserted(plantsList.size()-1);*/
-        Intent myIntent = new Intent(MainActivity.this, PlantActivity.class);
-        //myIntent.putExtra()
-        MainActivity.this.startActivity(myIntent);
+    @Override
+    protected void onStart() {
+
+        super.onStart();
+        adapter.notifyDataSetChanged();
     }
 
-    public void openPlantView(View view) {
+    public void addPlant(View view) {
         Intent myIntent = new Intent(MainActivity.this, PlantActivity.class);
+        myIntent.putExtra("PLANT", new Plant());
         MainActivity.this.startActivity(myIntent);
     }
 
     private void SetPlantInfo() {
 
-        plantsList.add(new Plant("lol"));
-        plantsList.add(new Plant("Janne"));
+        plantsList.add(new Plant("Kasvi 1"));
+        plantsList.add(new Plant("Kasvi 2"));
 
     }
 /*
@@ -73,9 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerAdapter adapter = new RecyclerAdapter(this, plantsList);
+        this.recyclerView = findViewById(R.id.recycler_view);
+        this.adapter = new PlantsRecyclerAdapter(this, plantsList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void openPreferences(View view) {
+        Intent myIntent = new Intent(MainActivity.this, PreferencesActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }

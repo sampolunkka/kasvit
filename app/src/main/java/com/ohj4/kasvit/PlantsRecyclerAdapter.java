@@ -2,6 +2,7 @@ package com.ohj4.kasvit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,19 +12,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class PlantsRecyclerAdapter extends RecyclerView.Adapter<PlantsRecyclerAdapter.ViewHolder> {
 
-    private static final String TAG = "RecyclerAdapter";
+    private static final String TAG = "PlantsRecyclerAdapter";
 
     private ArrayList<Plant> plantsList;
     private Context context;
 
-    public RecyclerAdapter(Context context, ArrayList<Plant> plantsList) {
+    public PlantsRecyclerAdapter(Context context, ArrayList<Plant> plantsList) {
         this.plantsList = plantsList;
         this.context = context;
     }
@@ -44,15 +45,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         holder.plantName.setText(plant.getName());
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + plant.getName());
-                Intent intent = new Intent(context, PlantActivity.class);
-                intent.putExtra("plant_name", plant.getName());
-                intent.putExtra("plant_desc", plant.getDescription());
-                context.startActivity(intent);
-            }
+        holder.parentLayout.setOnClickListener(view -> {
+            Log.d(TAG, "onClick: clicked on: " + plant.getName());
+            Intent intent = new Intent(context, PlantActivity.class);
+            intent.putExtra("plant_name", plant.getName());
+            intent.putExtra("plant_desc", plant.getDescription());
+            intent.putExtra("INDEX", position);
+            intent.putExtra("PLANT", plant);
+
+            context.startActivity(intent);
         });
 
     }

@@ -6,28 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".PlantActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/plantNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:text="Kasvi"
-            android:textSize="18sp"
-            android:minWidth="64dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/backButton"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@null"
-            />
 
         <ImageButton
             android:id="@+id/backButton"
@@ -36,25 +24,43 @@
             android:layout_marginStart="16dp"
             android:background="@null"
             android:contentDescription="Back"
+            android:onClick="goBackToPreviousActivity"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_arrow_left" />
 
+        <EditText
+            android:id="@+id/plantNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:background="@null"
+            android:minWidth="64dp"
+            android:text="Kasvi"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="16dp"
-            android:text="Muokkaa"
+            android:layout_marginBottom="3dp"
             android:onClick="toggleEditable"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0"
+            android:text="Tallenna"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -90,18 +96,24 @@
                 android:layout_margin="8dp"
                 android:background="#FFF"
                 android:padding="8dp"
-                android:inputType="text"
                 />
             <Switch
                 android:id="@+id/alarmSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Muistutus"
+                android:text="Muistutukset"
                 android:textSize="24sp"
                 android:layout_margin="8dp"
                 android:background="#FFF"
                 android:padding="8dp"
 
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/alarms_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="100"
                 />
         </LinearLayout>
     </ScrollView>

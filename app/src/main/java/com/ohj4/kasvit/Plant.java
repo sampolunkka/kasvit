@@ -2,28 +2,42 @@ package com.ohj4.kasvit;
 
 import android.app.Notification;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Plant {
+public class Plant implements Serializable {
 
     private String name = "Name here";
     private String description = "Description here";
-    private boolean notificationIsSet = false;
-    private ArrayList<Notification> notifications = new ArrayList<>();
+    private boolean alarmIsSet = false;
+    private ArrayList<Alarm> alarms = new ArrayList<>();
 
     public Plant() {
+        addAlarm(new Alarm());
     }
 
     public Plant(String name) {
         this.name = name;
+        addAlarm(new Alarm());
     }
 
-    public void addNotification(Notification notification) {
-        this.notifications.add(notification);
+    public Plant(String name, String description, boolean alarmIsSet, ArrayList<Alarm> alarms) {
+        this.name = name;
+        this.description = description;
+        this.alarmIsSet = alarmIsSet;
+        this.alarms = alarms;
     }
 
-    public void removeNotification(int id) {
-        this.notifications.remove(id);
+    public void addAlarm(Alarm alarm) {
+        this.alarms.add(alarm);
+    }
+
+    public ArrayList<Alarm> getAlarms() {
+        return this.alarms;
+    }
+
+    public void removeAlarm(int id) {
+        this.alarms.remove(id);
     }
 
     public void setDescription(String description) {
@@ -34,12 +48,12 @@ public class Plant {
         this.name = name;
     }
 
-    public void setNotificationIsSet(boolean notificationIsSet) {
-        this.notificationIsSet = notificationIsSet;
+    public void setNotificationIsSet(boolean alarmIsSet) {
+        this.alarmIsSet = alarmIsSet;
     }
 
-    public void setNotifications(ArrayList<Notification> notifications) {
-        this.notifications = notifications;
+    public void setNotifications(ArrayList<Alarm> alarms) {
+        this.alarms = alarms;
     }
 
     public String getName() {
