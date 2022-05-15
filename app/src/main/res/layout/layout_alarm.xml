@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:text="Muistutus"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp" />
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/row2"
@@ -28,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/alarm_switch">
 
         <EditText
+            android:textColor="@color/black"
             android:id="@+id/alarm_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/alarm_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,6 +74,7 @@
             />
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/repeat_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
