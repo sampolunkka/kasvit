@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void SetPlantInfo() {
 
-        plantsList.add(new Plant("Kasvi 1"));
-        plantsList.add(new Plant("Kasvi 2"));
+        plantsList.add(new Plant("Kukka"));
+        plantsList.add(new Plant("Toinen Kukka"));
 
     }
 /*

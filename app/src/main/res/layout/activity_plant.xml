@@ -14,7 +14,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        >
 
 
         <ImageButton
@@ -98,10 +100,10 @@
                 android:padding="8dp"
                 />
             <Switch
-                android:id="@+id/alarmSwitch"
+                android:id="@+id/alarm_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Muistutukset"
+                android:text="Muistutus"
                 android:textSize="24sp"
                 android:layout_margin="8dp"
                 android:background="#FFF"

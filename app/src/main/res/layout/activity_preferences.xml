@@ -13,12 +13,11 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/white"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageButton
@@ -82,7 +81,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:text="Pieni"
                 android:textSize="18sp"
@@ -103,7 +102,7 @@
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            android:layout_margin="16dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +133,7 @@
             android:layout_height="wrap_content"
             android:text="Ilmoitukset"
             android:textSize="18sp"
-            android:layout_margin="8dp"
+            android:layout_margin="16dp"
             />
 
         <Switch
@@ -143,7 +142,7 @@
             android:layout_height="wrap_content"
             android:text="Äänet"
             android:textSize="18sp"
-            android:layout_margin="8dp"
+            android:layout_margin="16dp"
             />
 
         <LinearLayout

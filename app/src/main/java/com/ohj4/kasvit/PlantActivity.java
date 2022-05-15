@@ -80,11 +80,15 @@ public class PlantActivity extends AppCompatActivity {
         editModeEnabled = bool;
 
 
-        //PRESS READY
+        //PRESS EIDT
         if (editModeEnabled) {
             edit.setText("Tallenna");
+            findViewById(R.id.alarm_switch).setVisibility(View.GONE);
+            findViewById(R.id.alarms_recycler_view).setVisibility(View.VISIBLE);
         } else {
             //PRESS READY
+            findViewById(R.id.alarm_switch).setVisibility(View.VISIBLE);
+            findViewById(R.id.alarms_recycler_view).setVisibility(View.GONE);
             edit.setText("Muokkaa");
 
             modifyPlantInfo();

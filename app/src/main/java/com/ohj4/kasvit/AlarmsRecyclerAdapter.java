@@ -55,7 +55,7 @@ public class AlarmsRecyclerAdapter extends RecyclerView.Adapter<AlarmsRecyclerAd
     public class ViewHolder extends RecyclerView.ViewHolder {
         private EditText alarmTime;
         private Switch alarmSwitch;
-        private EditText alarmDesc;
+        private TextView alarmDesc;
         private TextView repeatText;
         private Spinner spinner;
 
